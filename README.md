@@ -5,6 +5,9 @@
 Students face several everyday problems that are small on their own but add up to a lot of stress, lost money, and lost time. **OmniCampus** addresses every one of these challenges in a single, high-performance web application.
 
 ---
+## 🌐 Live Demo
+
+🚀 **Explore the project:** https://owasp-project-iota.vercel.app/
 
 ## 🎯 Problem Statement & Solution Mapping
 
