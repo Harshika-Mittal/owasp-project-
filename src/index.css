@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * ═══════════════════════════════════════════
+ *  OmniCampus — Design System Foundation
+ * ═══════════════════════════════════════════
+ *
+ *  COLOR STRATEGY  (60-30-10 rule)
+ *  ─────────────────────────────────
+ *  60%  Base backgrounds:   warm cream #F7F5F2  /  midnight #0D1117
+ *  30%  Cards & panels:     white #FFF / sage #EFF6F0  /  slate #161B22
+ *  10%  Accent teal:        #0D9488 (CTAs, badges, links, focus)
+ *
+ *  TYPOGRAPHY HIERARCHY
+ *  ─────────────────────
+ *  Level 1 — Headings:    Space Grotesk 700-800  (decorative, impactful)
+ *  Level 2 — Subheadings: Space Grotesk 500-600  (clean, structured)
+ *  Level 3 — Body text:   Inter 400              (neutral, readable)
+ */
+
+@layer base {
+
+  /* ── Font Assignments ── */
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    /* Inter stylistic alternates */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Level 1 — Headings: decorative display font */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  /* Level 2 — Subheadings: same family, lighter weight */
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 500;
+  }
+
+  /* Level 3 — Body: stays on Inter, no decorative treatment */
+  p,
+  span,
+  li,
+  label,
+  input,
+  textarea,
+  select,
+  button {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* ── Focus ring: accent teal ── */
+  *:focus-visible {
+    outline: 2px solid #0D9488;
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+
+  /* ── Accent button (10% color: the one thing that pops) ── */
+  .btn-accent {
+    @apply px-4 py-2 text-body-sm font-semibold bg-accent-600 text-white rounded-xl shadow-sm hover:bg-accent-700 hover:shadow-glow-accent active:scale-[0.98] transition-all duration-150;
+  }
+
+  .btn-accent-outline {
+    @apply px-4 py-2 text-body-sm font-semibold bg-transparent text-accent-600 rounded-xl border border-accent-600/30 hover:bg-accent-50 hover:border-accent-600 dark:text-accent-400 dark:border-accent-400/30 dark:hover:bg-accent-950/40 active:scale-[0.98] transition-all duration-150;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-body-sm font-semibold text-ink-600 dark:text-ink-300 rounded-xl hover:bg-ink-100 dark:hover:bg-base-800 active:scale-[0.98] transition-all duration-150;
+  }
+
+  /* ── Card: 30% surface with subtle lift ── */
+  .card {
+    @apply bg-surface-50 dark:bg-surface-900 border border-ink-200/60 dark:border-ink-700/30 rounded-2xl shadow-card transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:border-accent-300/40 dark:hover:border-accent-700/40;
+  }
+
+  /* ── Section wrapper on 60% base ── */
+  .section-base {
+    @apply bg-base-100 dark:bg-base-950;
+  }
+
+  /* ── Badge — accent pop ── */
+  .badge-accent {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-caption font-bold uppercase tracking-wider bg-accent-50 text-accent-700 dark:bg-accent-950/60 dark:text-accent-300 border border-accent-200 dark:border-accent-800 rounded-full;
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-caption font-bold uppercase tracking-wider bg-danger-50 text-danger-700 dark:bg-danger-500/10 dark:text-danger-500 border border-danger-100 dark:border-danger-500/20 rounded-full;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-caption font-bold uppercase tracking-wider bg-warning-50 text-warning-700 dark:bg-warning-500/10 dark:text-warning-500 border border-warning-100 dark:border-warning-500/20 rounded-full;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-caption font-bold uppercase tracking-wider bg-success-50 text-success-700 dark:bg-success-500/10 dark:text-success-500 border border-success-100 dark:border-success-500/20 rounded-full;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-caption font-bold uppercase tracking-wider bg-ink-100 text-ink-600 dark:bg-ink-700/40 dark:text-ink-300 rounded-full;
+  }
+}
+
+/* ── Scrollbar — subtle, matches 60-30-10 ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ── Smooth transitions ── */
+* {
+  scroll-behavior: smooth;
+}
